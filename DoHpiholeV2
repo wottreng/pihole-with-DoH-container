@@ -1,0 +1,7 @@
+#!/bin/bash
+
+sudo docker run -d --name dohpihole -e TZ="America/Detroit" -p 53:53/tcp -p 53:53/udp -p 6970:80 -e WEBPASSWORD='your_password' -e DNSSEC="true" -v "$(pwd)/etc-pihole/:/etc/pihole/" -v "$(pwd)/etc-dnsmasq.d/:/etc/dnsmasq.d/" --restart=unless-stopped piholedohv2:1
+
+printf 'Starting up DoH Pihole container '
+
+# -p 53:53/tcp -p 53:53/udp -p 6970:80 \
