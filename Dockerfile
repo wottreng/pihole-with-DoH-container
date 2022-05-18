@@ -4,9 +4,11 @@ FROM pihole/pihole:latest
 RUN \
  apt-get update && \
  apt-get -y upgrade && \
- apt-get install net-tools && \
- wget https://bin.equinox.io/c/VdrWdbjqyF/cloudflared-stable-linux-amd64.deb && \
- apt-get install ./cloudflared-stable-linux-amd64.deb
+ apt-get install -y wget && \
+ apt-get install -y apt-utils && \
+ apt-get install -y net-tools && \
+ wget https://github.com/cloudflare/cloudflared/releases/latest/download/cloudflared-linux-amd64.deb && \
+ apt-get install ./cloudflared-linux-amd64.deb
 
 # COPY source dest
 
